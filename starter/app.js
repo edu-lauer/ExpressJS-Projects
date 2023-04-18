@@ -1,7 +1,8 @@
-require('./db/connect.js')
 const express = require('express')
-const port = 5000
+const connectDb = require('./db/connect.js')
 const tasks = require('./routes/tasks.js')
+
+const port = 5000
 const app = express()
 
 // middleware
@@ -15,11 +16,18 @@ app.get('/', (req, res) => {
 app.use('/api/v1/tasks', tasks)
 
 
+const start = async () => {
+    try {
+        await connectDb()
+        app.listen(port, () => {
+            console.log(`Server is listening at http://localhost:${port}/`)
+        })
+    } catch (error) {
+        console.log(error)
+    }
+}
 
-app.listen(port, () => {
-    console.log(`Server is listening at http://localhost:${port}/`)
-})
-
+start()
 
 
 // app.get('/api/v1/tasks')         - get all the tasks
