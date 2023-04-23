@@ -34,7 +34,6 @@ const getTask = async (req, res) => {
 const updateTask = async (req, res) => {
     try {
         const id = req.params.id
-        console.log(id)
         const task = await Task.findByIdAndUpdate(id, req.body, {
             new: true,
             runValidators: true
