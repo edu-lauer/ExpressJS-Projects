@@ -34,11 +34,11 @@ const getTask = async (req, res) => {
 const updateTask = async (req, res) => {
     try {
         const id = req.params.id
-        const task = await Task.findByIdAndUpdated(id, req.body, {
+        console.log(id)
+        const task = await Task.findByIdAndUpdate(id, req.body, {
             new: true,
             runValidators: true
         })
-        console.log(req.body, task.id)
         res.status(200).send({ task })
     } catch (error) {
         res.status(500).json({ msg: error.message })
