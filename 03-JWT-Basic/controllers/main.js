@@ -1,11 +1,12 @@
 const CustomAPIError = require('../errors/custom-error')
+const { StatusCodes } = require('http-status-codes')
 const jwt = require('jsonwebtoken')
 
 
 const login = async (req, res) => {
     const { username, password } = req.body
     if (!username || !password) {
-        throw new CustomAPIError('Please provide email and password', 400)
+        throw new CustomAPIError('Please provide email and password', StatusCodes.BAD_REQUEST)
     }
     // normally provided by DB
     const id = new Date().getDate()
