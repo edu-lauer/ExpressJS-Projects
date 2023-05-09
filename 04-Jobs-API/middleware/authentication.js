@@ -5,6 +5,7 @@ const { UnauthenticatedError } = require('../errors/index')
 const auth = (req, res, next) => {
     // check header
     const authHeader = req.headers.authorization
+
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
         throw new UnauthenticatedError('Authentication invalid')
     }
@@ -12,8 +13,8 @@ const auth = (req, res, next) => {
     const token = authHeader.split(' ')[1]
 
     try {
-        const playload = jwt.verify(token, process.env.JWT_SECRET)
-        req.user = { userId: playload.userId, name: playload.name }
+        const payload = jwt.verify(token, process.env.JWT_SECRET)
+        req.user = { userId: payload.userId, name: payload.name }
         next()
     } catch (error) {
         throw new UnauthenticatedError('Authentication invalid')
