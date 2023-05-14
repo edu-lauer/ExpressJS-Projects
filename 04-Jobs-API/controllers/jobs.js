@@ -15,7 +15,6 @@ const getJob = async (req, res) => {
         createdBy: userId
     })
 
-    // essa parte do código não roda, sempre que é tentando achar um _id não existente ele joga erro 500 e não entra nesse if
     if (!job) {
         throw new NotFoundError(`No job with id:${jobId}`)
     }
@@ -46,7 +45,6 @@ const updateJob = async (req, res) => {
         { new: true, runValidators: true }
     )
 
-    // essa parte do código não roda, sempre que é tentando achar um _id não existente ele joga erro 500 e não entra nesse ifi
     if (!job) {
         throw new NotFoundError(`No job with id:${jobId}`)
     }
@@ -62,7 +60,6 @@ const deleteJob = async (req, res) => {
         createdBy: userId
     })
 
-    // essa parte do código não roda, sempre que é tentando achar um _id não existente ele joga erro 500 e não entra nesse ifi
     if (!job) {
         throw new NotFoundError(`No job with id:${jobId}`)
     }
