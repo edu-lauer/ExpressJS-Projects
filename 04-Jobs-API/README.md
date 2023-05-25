@@ -31,7 +31,7 @@ npm install
 
 4. Set up the database:
 
-   - Create a new Mongoose database.
+   - Create a new Mongo database.
 
 6. Start the server:
 
