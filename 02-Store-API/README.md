@@ -59,7 +59,7 @@ The API uses the following data structure for products and orders:
 
 ### Product model
 
-```json
+```
 {
     name: {
         type: String,
