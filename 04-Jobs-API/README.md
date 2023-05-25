@@ -47,11 +47,12 @@ The following API endpoints are available:
 
 ### Jobs
 
-- `GET /jobs`: Get all jobs
-- `GET /jobs/:id`: Get a single job by ID
-- `POST /jobs`: Create a new job
-- `PUT /jobs/:id`: Update a job by ID
-- `DELETE /jobs/:id`: Delete a job by ID
+- `GET /api/v1/jobs`: Get all jobs
+- `GET /api/v1/jobs/:id`: Get a single job by ID
+- `POST /api/v1/jobs`: Create a new job
+- `PATCH /api/v1/jobs/:id`: Update a job by ID
+- `DELETE /api/v1/jobs/:id`: Delete a job by ID
+- `POST /api/v1/auth/login`: Login user
 
 ## Data Structure
 
